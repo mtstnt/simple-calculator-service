@@ -1,0 +1,23 @@
+version: "3.3"  # optional since v1.27.0
+services:
+  rest-gateway:
+    build: ./rest-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+      - redis
+  calculator-service:
+    build: ./calculator-service
+    depends_on:
+      - rabbitmq
+      - redis
+  rabbitmq:
+    image: rabbitmq:3.9.11-alpine
+    expose:
+      - 5672
+      - 15672
+  redis:
+    image: redis:alpine
+    expose:
+      - 6379
