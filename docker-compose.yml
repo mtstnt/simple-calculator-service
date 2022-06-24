@@ -13,11 +13,6 @@ services:
       - rabbitmq
       - redis
   rabbitmq:
-    image: rabbitmq:3.9.11-alpine
-    expose:
-      - 5672
-      - 15672
+    image: rabbitmq:3.9.17-alpine
   redis:
-    image: redis:alpine
-    expose:
-      - 6379
+    image: redis:7.0.0-alpine3.16
